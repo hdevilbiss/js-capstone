@@ -4,6 +4,11 @@
 import "./style/app.scss";
 
 /**
+ * Import components
+ */
+import Palindrome from "./components/Palindrome";
+
+/**
  * Import Firebase SDK(s)
  */
 import firebase from "firebase/app";
@@ -25,6 +30,7 @@ function App() {
           JavaScript Capstone
         </h1>
       </header>
+      <Palindrome />
     </div>
   );
 }
