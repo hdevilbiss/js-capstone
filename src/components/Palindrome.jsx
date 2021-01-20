@@ -1,75 +1,63 @@
+import { useState } from "react";
+
+import palindromeChecker from "../js/palindromeChecker";
+
 const Palindrome = () => {
+  /**
+   * State
+   */
+  const [palindromeInput, setPalindromeInput] = useState("");
+  const [palindromeFeedback, setPalindromeFeedback] = useState("");
+  const [palindromeOutput, setPalindromeOutput] = useState([]);
+
   /**
    * Event Handlers
    */
-  const palindromeChecker = () => {
-    const palindromeInput = document.getElementById("palindrome-input");
-    const palindromeOutput = document.getElementById("palindrome-output");
-    const strToCheck = palindromeInput.value;
-    const feedback = document.getElementById("feedback-on-palindrome-input");
-    if (strToCheck.length < 2) {
-      feedback.innerHTML = "String too short; needs >= 2";
-      return;
+  const palindromeInputHandler = (event) => {
+    setPalindromeInput(event.target.value);
+  };
+  const submitPalindromeHandler = () => {
+    palindromeInput.length <= 2 || palindromeInput.length > 20
+      ? setPalindromeFeedback("Must be between 2 and 20 characters in length")
+      : palindromeChecker(palindromeInput) === true
+        ? setPalindromeOutput(...palindromeOutput, `Yes, ${palindromeInput} is indeed a palindrome.`)
+        : setPalindromeOutput(...palindromeOutput, `No, ${palindromeInput} is not a palindrome.`);
+      setPalindromeFeedback("");
+      setPalindromeInput("");
+      document.getElementById("palindrome-input").focus();
     }
-    if (strToCheck.length > 20) {
-      feedback.innerHTML = "String too long; needs <= 20";
-      return;
-    }
-    let n = strToCheck.length;
-    let str1 = "";
-    let str2 = "";
+  const clearPalindromeHandler = () => {
+    setPalindromeInput("");
+    setPalindromeFeedback("");
+    setPalindromeOutput("");
+    document.getElementById("palindrome-input").focus();
+  };
 
-    switch (n % 2) {
-      case 0:
-        str1 = strToCheck.slice(0, n / 2);
-        str2 = strToCheck.slice(n / 2, n).split("").reverse().join("");
-        break;
-      case 1:
-        str1 = strToCheck.slice(0, Math.floor(n / 2) + 1);
-        str2 = strToCheck.slice(Math.floor(n / 2), n).split("").reverse().join("");
-        break;
-      default:
-        break;
-    }
-    str1 === str2
-      ? palindromeOutput.innerHTML += `<p>Yes, ${strToCheck} is a palindrome.</p>`
-      : palindromeOutput.innerHTML += `<p>No, ${strToCheck} is not a palindrome.</p>`;
-    feedback.innerHTML = "";
-    palindromeInput.value = "";
-  }
-  const clearPalindromeOutput = () => {
-    const palindromeOutput = document.getElementById("palindrome-output");
-    while (palindromeOutput.firstChild) {
-			palindromeOutput.removeChild(palindromeOutput.firstChild);
-    }
-    document.getElementById("palindrome-input").value = "";
-    document.getElementById("feedback-on-palindrome-input").innerHTML = "";
-  }
-
+  /**
+   * Return object
+   */
   return (
     <div className="palindrome">
       <h2>
         Palindrome Tester
       </h2>
-      <a href="https://www.freecodecamp.org/learn/javascript-algorithms-and-data-structures/javascript-algorithms-and-data-structures-projects/palindrome-checker" alt="Link to the exercise on freeCodeCamp">
+      <a href="https://www.freecodecamp.org/learn/javascript-algorithms-and-data-structures/javascript-algorithms-and-data-structures-projects/palindrome-checker" alt="Link to the palindrome exercise on freeCodeCamp">
         Project #1 on freeCodeCamp
       </a>
       <div>
         <label htmlFor="palindrome-input">
           Input a word
         </label>
-        <input type="text" id="palindrome-input" />
-        <span id="feedback-on-palindrome-input"></span>
+        <input type="text" id="palindrome-input" onChange={() => palindromeInputHandler()} value={palindromeInput} />
+        <span id="feedback-on-palindrome-input" value={palindromeFeedback}></span>
       </div>
-      <button id="button-input" onClick={palindromeChecker}>
+      <button id="button-input" onClick={submitPalindromeHandler}>
         Test the word
       </button>
-      <button id="button-clear" onClick={clearPalindromeOutput}>
+      <button id="button-clear" onClick={clearPalindromeHandler}>
         Clear the output
       </button>
-      <div id="palindrome-output">
-
-      </div>
+      <div id="palindrome-output" value={palindromeOutput}></div>
     </div>
   );
 }
