@@ -17,19 +17,22 @@ const Palindrome = () => {
     setPalindromeInput(event.target.value);
   };
   const submitPalindromeHandler = () => {
-    palindromeInput.length <= 2 || palindromeInput.length > 20
-      ? setPalindromeFeedback("Must be between 2 and 20 characters in length")
-      : palindrome(palindromeInput) === true
-        ? setPalindromeOutput(...palindromeOutput, `Yes, ${palindromeInput} is indeed a palindrome.`)
-        : setPalindromeOutput(...palindromeOutput, `No, ${palindromeInput} is not a palindrome.`);
+    if (palindromeInput.length <= 2 || palindromeInput.length > 20) {
+      setPalindromeFeedback("Must be between 2 and 20 characters in length");
+    }
+    else {
+      palindrome(palindromeInput) === true
+      ? setPalindromeOutput([...palindromeOutput, `Yes, ${palindromeInput} is indeed a palindrome.`])
+      : setPalindromeOutput([...palindromeOutput, `No, ${palindromeInput} is not a palindrome.`]);
       setPalindromeFeedback("");
       setPalindromeInput("");
-      document.getElementById("palindrome-input").focus();
     }
+    document.getElementById("palindrome-input").focus();
+  }
   const clearPalindromeHandler = () => {
     setPalindromeInput("");
     setPalindromeFeedback("");
-    setPalindromeOutput("");
+    setPalindromeOutput([]);
     document.getElementById("palindrome-input").focus();
   };
 
@@ -38,18 +41,20 @@ const Palindrome = () => {
    */
   return (
     <div className="palindrome">
-      <h2>
-        Palindrome Tester
-      </h2>
-      <a href="https://www.freecodecamp.org/learn/javascript-algorithms-and-data-structures/javascript-algorithms-and-data-structures-projects/palindrome-checker" alt="Link to the palindrome exercise on freeCodeCamp">
-        Project #1 on freeCodeCamp
-      </a>
+      <header>
+        <h2>
+          Palindrome Tester
+        </h2>
+        <a href="https://www.freecodecamp.org/learn/javascript-algorithms-and-data-structures/javascript-algorithms-and-data-structures-projects/palindrome-checker">
+          Prompt: Exercise #1
+        </a>
+      </header>
       <div>
         <label htmlFor="palindrome-input">
           Input a word
         </label>
-        <input type="text" id="palindrome-input" onChange={() => palindromeInputHandler()} value={palindromeInput} />
-        <span id="feedback-on-palindrome-input" value={palindromeFeedback}></span>
+        <input type="text" id="palindrome-input" onChange={palindromeInputHandler} value={palindromeInput} />
+        <span id="feedback-on-palindrome-input">{palindromeFeedback}</span>
       </div>
       <button id="button-input" onClick={submitPalindromeHandler}>
         Test the word
@@ -57,7 +62,11 @@ const Palindrome = () => {
       <button id="button-clear" onClick={clearPalindromeHandler}>
         Clear the output
       </button>
-      <div id="palindrome-output" value={palindromeOutput}></div>
+      <div id="palindrome-output">
+        {palindromeOutput.map(str => (
+          <p>{str}</p>
+        ))}
+      </div>
     </div>
   );
 }
