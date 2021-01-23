@@ -14,7 +14,7 @@ This project is a React app with Mocha unit tests and Sass stylesheets, deployed
 
 ### Run it locally
 
-1. Clone the remote. `git clone https://github.com/hdevilbiss/js-capstone`
+1. Clone the remote. `git clone https://github.com/hdevilbiss/js-capstone.git`
 1. Be able to use Node.
 1. Install Node dependencies. `npm i`
 1. Start the server. `npm start`
