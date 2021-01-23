@@ -20,8 +20,14 @@
     border: 2px solid black;
     border-radius: 5px;
     cursor: pointer;
+    margin-top: 1rem;
     padding: 0.5rem;
     text-align: center;
+  }
+  header {
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
   }
   input {
     border-radius: 5px;
@@ -47,8 +53,10 @@
     background-color: black;
     color: white;
   }
-  #feedback-on-palindrome {
+  #feedback-on-palindrome-input {
+    display: inline-block;
     font-style: italic;
+    margin-top: 0;
   }
   #palindrome-output {
     margin-top: 1rem;
