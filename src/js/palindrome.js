@@ -15,7 +15,7 @@
  *
  */
 const palindrome = (strToCheck = "") => {
-  const newStr = strToCheck.replaceAll(/[,\/\-\.|_\s:()]/g, "").toLowerCase();
+  const newStr = strToCheck.replaceAll(/[,/\-.|_\s:()]/g, "").toLowerCase();
   let len = newStr.length;
   return (len % 2 === 0)
     ? newStr.slice(0, len / 2) === newStr.slice(len / 2, len).split("").reverse().join("")
