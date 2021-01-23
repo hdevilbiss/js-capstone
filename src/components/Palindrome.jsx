@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-import palindromeChecker from "../js/palindromeChecker";
+import palindrome from "../js/palindrome";
 
 const Palindrome = () => {
   /**
@@ -19,7 +19,7 @@ const Palindrome = () => {
   const submitPalindromeHandler = () => {
     palindromeInput.length <= 2 || palindromeInput.length > 20
       ? setPalindromeFeedback("Must be between 2 and 20 characters in length")
-      : palindromeChecker(palindromeInput) === true
+      : palindrome(palindromeInput) === true
         ? setPalindromeOutput(...palindromeOutput, `Yes, ${palindromeInput} is indeed a palindrome.`)
         : setPalindromeOutput(...palindromeOutput, `No, ${palindromeInput} is not a palindrome.`);
       setPalindromeFeedback("");
