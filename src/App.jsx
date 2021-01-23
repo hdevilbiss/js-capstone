@@ -30,7 +30,9 @@ function App() {
           JavaScript Capstone
         </h1>
       </header>
-      <Palindrome />
+      <div className="wrapper">
+        <Palindrome />
+      </div>
     </div>
   );
 }
