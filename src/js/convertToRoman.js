@@ -42,7 +42,7 @@ const convertToRoman = (num) => {
     }
     else if (floor > 5 && floor < 9) {
       returnArr.push(numMid);
-      for (let i = 0; i < floor; i++) {
+      for (let i = 0; i < (floor - 5); i++) {
         returnArr.push(numMin);
       }
     }
