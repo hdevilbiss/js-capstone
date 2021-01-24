@@ -21,10 +21,10 @@
  */
 const convertToRoman = (num) => {
   let parseNum = parseInt(num);
-  let mutateNum = parseNum;
   if (isNaN(parseNum) || parseNum > 9999 || parseNum < 0) {
     return;
   }
+
   /**
    *
    * @param {Integer} floor
@@ -32,10 +32,11 @@ const convertToRoman = (num) => {
    * @param {String} midNumeral
    * @param {String} largestNumeral
    * Given a number, `floor`, from 1 to 9,
-   * create a return array. Push the other string parameters
-   * onto the array depending on the value of floor.
+   * return a string of characters made from the
+   * string parameters. The string make-up
+   * depends on the value of floor.
    */
-  const pusher = (floor, smallestNumeral, midNumeral, largestNumeral) => {
+  const getRomanNumeral = (floor = 0, smallestNumeral = "", midNumeral = "", largestNumeral = "") => {
     return floor <= 3
       ? smallestNumeral.repeat(floor)
       : floor === 4
@@ -45,47 +46,26 @@ const convertToRoman = (num) => {
           : (floor > 5 && floor < 9)
             ? midNumeral.concat(smallestNumeral.repeat(floor - 5))
             : smallestNumeral.concat(largestNumeral);
-    if (floor > 10){
-      return;
-    }
-    else if (floor <= 3) {
-      return smallestNumeral.repeat(floor);
-    }
-    else if (floor === 4) {
-      return smallestNumeral.concat(midNumeral);
-    }
-    else if (floor === 5) {
-      return midNumeral;
-    }
-    else if (floor > 5 && floor < 9) {
-      return midNumeral.concat(smallestNumeral.repeat(floor - 5));
-    }
-    else {
-      return smallestNumeral.concat(largestNumeral);
-    }
   }
-  const returnArr = [];
-  if (parseNum > 999) {
-    let floor = Math.floor(parseNum / 1000);
-    for (let i = 0; i < floor; i++) {
-      returnArr.push("M");
-      mutateNum = mutateNum - 1000;
-    }
-  }
-  if (mutateNum >= 100) {
-    let floor = Math.floor(mutateNum / 100);
-    returnArr.push(pusher(floor, "C", "D", "M"));
-    mutateNum = mutateNum - (floor * 100);
-  }
-  if (mutateNum >= 10) {
-    let floor = Math.floor(mutateNum / 10);
-    returnArr.push(pusher(floor, "X", "L", "C"));
-    mutateNum = mutateNum - (floor * 10);
-  }
-  if (mutateNum >= 1) {
-    returnArr.push(pusher(mutateNum, "I", "V", "X"));
-  }
-  return returnArr.join("");
+
+  let romanNumerals = "";
+
+  /** Thousands */
+  romanNumerals += "M".repeat(Math.floor(parseNum / 1000));
+  parseNum %= 1000;
+
+  /** Hundreds */
+  romanNumerals += getRomanNumeral(Math.floor(parseNum / 100), "C", "D", "M")
+  parseNum %= 100;
+
+  /** Tens */
+  romanNumerals += getRomanNumeral(Math.floor(parseNum / 10), "X", "L", "C");
+  parseNum %= 10;
+
+  /** Ones */
+  romanNumerals += getRomanNumeral(parseNum, "I", "V", "X");
+
+  return romanNumerals;
 }
 
 module.exports = convertToRoman;
