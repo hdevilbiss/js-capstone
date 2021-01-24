@@ -40,7 +40,7 @@ const convertToRoman = (num) => {
     return floor <= 3
       ? smallestNumeral.repeat(floor)
       : floor === 4
-        ? smallestNumeral.repeat(floor)
+        ? smallestNumeral.concat(midNumeral)
         : floor === 5
           ? midNumeral
           : (floor > 5 && floor < 9)
