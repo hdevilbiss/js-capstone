@@ -1,5 +1,4 @@
 import { useState } from "react";
-
 import palindrome from "../js/palindrome";
 
 const Palindrome = () => {
@@ -17,7 +16,7 @@ const Palindrome = () => {
     setPalindromeInput(event.target.value);
   };
   const submitPalindromeHandler = () => {
-    if (palindromeInput.length <= 2 || palindromeInput.length > 20) {
+    if (palindromeInput.length < 2 || palindromeInput.length > 20) {
       setPalindromeFeedback("Must be between 2 and 20 characters in length");
     }
     else {
@@ -46,7 +45,10 @@ const Palindrome = () => {
           Palindrome Tester
         </h2>
         <a href="https://www.freecodecamp.org/learn/javascript-algorithms-and-data-structures/javascript-algorithms-and-data-structures-projects/palindrome-checker">
-          Prompt: Exercise #1
+          Read Exercise Prompt
+        </a>
+        <a href="https://github.com/hdevilbiss/js-capstone/blob/main/src/js/palindrome.js">
+          Source Code
         </a>
       </header>
       <div>
@@ -63,8 +65,8 @@ const Palindrome = () => {
         Clear the output
       </button>
       <div id="palindrome-output">
-        {palindromeOutput.map(str => (
-          <p>{str}</p>
+        {palindromeOutput.map((str, idx) => (
+          <p key={idx}>{str}</p>
         ))}
       </div>
     </div>
