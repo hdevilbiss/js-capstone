@@ -25,29 +25,43 @@ const convertToRoman = (num) => {
   if (isNaN(parseNum) || parseNum > 9999 || parseNum < 0) {
     return;
   }
-  const pusher = (floor, numMin, numMid, numMax) => {
+  /**
+   *
+   * @param {Integer} floor
+   * @param {String} smallestNumeral
+   * @param {String} midNumeral
+   * @param {String} largestNumeral
+   * Given a number, `floor`, from 1 to 9,
+   * create a return array. Push the other string parameters
+   * onto the array depending on the value of floor.
+   */
+  const pusher = (floor, smallestNumeral, midNumeral, largestNumeral) => {
+    return floor <= 3
+      ? smallestNumeral.repeat(floor)
+      : floor === 4
+        ? smallestNumeral.repeat(floor)
+        : floor === 5
+          ? midNumeral
+          : (floor > 5 && floor < 9)
+            ? midNumeral.concat(smallestNumeral.repeat(floor - 5))
+            : smallestNumeral.concat(largestNumeral);
     if (floor > 10){
       return;
     }
     else if (floor <= 3) {
-      for (let i = 0; i < floor; i++) {
-        returnArr.push(numMin);
-      }
+      return smallestNumeral.repeat(floor);
     }
     else if (floor === 4) {
-      returnArr.push(numMin.concat(numMid));
+      return smallestNumeral.concat(midNumeral);
     }
     else if (floor === 5) {
-      returnArr.push(numMid);
+      return midNumeral;
     }
     else if (floor > 5 && floor < 9) {
-      returnArr.push(numMid);
-      for (let i = 0; i < (floor - 5); i++) {
-        returnArr.push(numMin);
-      }
+      return midNumeral.concat(smallestNumeral.repeat(floor - 5));
     }
     else {
-      returnArr.push(numMin.concat(numMax));
+      return smallestNumeral.concat(largestNumeral);
     }
   }
   const returnArr = [];
@@ -60,16 +74,16 @@ const convertToRoman = (num) => {
   }
   if (mutateNum >= 100) {
     let floor = Math.floor(mutateNum / 100);
-    pusher(floor, "C", "D", "M");
+    returnArr.push(pusher(floor, "C", "D", "M"));
     mutateNum = mutateNum - (floor * 100);
   }
   if (mutateNum >= 10) {
     let floor = Math.floor(mutateNum / 10);
-    pusher(floor, "X", "L", "C");
+    returnArr.push(pusher(floor, "X", "L", "C"));
     mutateNum = mutateNum - (floor * 10);
   }
   if (mutateNum >= 1) {
-    pusher(mutateNum, "I", "V", "X");
+    returnArr.push(pusher(mutateNum, "I", "V", "X"));
   }
   return returnArr.join("");
 }
