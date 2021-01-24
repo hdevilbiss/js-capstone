@@ -1,23 +1,21 @@
-.palindrome {
-  background-color: #000;
-  background-image: url("../images/palindrome.png");
+.roman {
   background-size: cover;
+  border: 2px solid #000;
   border-radius: 10px;
-  box-shadow: 5px 10px 5px #888;
-  color: #fff;
+  box-shadow: 5px 10px darkturquoise;
   margin: 2rem;
   padding: 1rem;
   a {
-    color: #33ccff;
+    color: #000;
     &:visited {
-      color: #cc00cc;
+      color: darkorchid;
     }
     &:hover {
-      color: #fff;
+      color: darkorchid;
     }
   }
   button {
-    border: 2px solid black;
+    border: 2px solid #000;
     border-radius: 5px;
     cursor: pointer;
     margin-top: 1rem;
@@ -27,7 +25,6 @@
   header {
     align-items: center;
     display: flex;
-    flex-wrap: wrap;
     justify-content: space-between;
   }
   input {
@@ -45,21 +42,20 @@
     margin-bottom: 0.25rem;
   }
   #button-input {
-    background-color: #33ccff;
+    background-color: paleturquoise;
     &:hover {
-      background-color: #cc00cc;
+      background-color: turquoise;
     }
   }
   #button-clear:hover {
-    background-color: black;
-    color: white;
+    background-color: paleturquoise;
   }
-  #feedback-on-palindrome-input {
+  #feedback-on-roman-input {
     display: inline-block;
     font-style: italic;
     margin-top: 0;
   }
-  #palindrome-output {
+  #roman-output {
     margin-top: 1rem;
   }
   @media screen and (max-width: 640px) {

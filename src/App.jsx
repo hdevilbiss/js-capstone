@@ -7,6 +7,7 @@ import "./style/app.scss";
  * Import components
  */
 import Palindrome from "./components/Palindrome";
+import Roman from "./components/Roman";
 
 /**
  * Import Firebase SDK(s)
@@ -32,6 +33,7 @@ function App() {
       </header>
       <div className="wrapper">
         <Palindrome />
+        <Roman />
       </div>
     </div>
   );
