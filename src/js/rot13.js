@@ -5,7 +5,8 @@
  * shift the letters in the string by
  * 13; e.g., A ==> N
  */
-const rot13 = (str) => {
+const rot13 = (str = "") => {
+  if (typeof str !== "string") return str;
   const charArr = [...str];
   const minChar = "A".charCodeAt();
   const maxChar = "Z".charCodeAt();
@@ -29,3 +30,6 @@ console.log(rot13("SERR CVMMN!"))
 
 // FREE LOVE?
 console.log(rot13("SERR YBIR?"))
+
+// 123
+console.log(rot13(123));

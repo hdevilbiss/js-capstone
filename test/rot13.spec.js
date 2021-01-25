@@ -26,8 +26,13 @@ describe("rot13 function test suite", () => {
       assert.strictEqual(rot13(obj.given), obj.expected);
     });
   });
-
   it('should return "F" when given "S"', () => {
     assert.strictEqual(rot13("S"), "F");
+  });
+  it('should return an empty string when given an empty string', () => {
+    assert.strictEqual(rot13(), "");
+  });
+  it('should return a number(s) unharmed when given a number', () => {
+    assert.strictEqual(rot13(123), 123);
   });
 })
