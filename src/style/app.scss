@@ -4,43 +4,17 @@
   margin: 0;
   padding: 0;
 }
-a {
-  color: blue;
-  &:visited {
-    color: darkorchid;
-  }
-  &:hover {
-    color: black;
-  }
-}
 button {
   display: inline-block;
   margin-right: 1rem;
-  transition: 0.3s;
 }
 header {
   margin-top: 1rem;
   text-align: center;
 }
-label,
-input,
-p,
-button,
-a {
-  font-size: 1.1rem;
-}
-.photo-credit {
-  color: #888;
-  font-size: 1rem;
-  font-style: italic;
-}
 .wrapper {
   margin-left: auto;
   margin-right: auto;
-  display: grid;
-  grid-template-columns: repeat(1, minmax(0, 1fr));
-  @media (min-width: 640px) {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
+  max-width: 65ch;
 }
 @import "./palindrome";
