@@ -1,6 +1,6 @@
 import { useState } from "react";
-import rot13 from "../js/rot13";
 import "../style/_rot.scss";
+const rot13 = require("../js/rot13");
 
 const Rot = () => {
   /**
