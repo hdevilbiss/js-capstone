@@ -4,6 +4,13 @@
 import "./style/app.scss";
 
 /**
+ * Import components
+ */
+import Palindrome from "./components/Palindrome";
+import Roman from "./components/Roman";
+import Rot from "./components/Rot";
+
+/**
  * Import Firebase SDK(s)
  */
 import firebase from "firebase/app";
@@ -25,6 +32,11 @@ function App() {
           JavaScript Capstone
         </h1>
       </header>
+      <div className="wrapper">
+        <Palindrome />
+        <Roman />
+        <Rot />
+      </div>
     </div>
   );
 }
