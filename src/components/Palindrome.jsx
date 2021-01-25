@@ -45,7 +45,7 @@ const Palindrome = () => {
           Palindrome Tester
         </h2>
         <a href="https://www.freecodecamp.org/learn/javascript-algorithms-and-data-structures/javascript-algorithms-and-data-structures-projects/palindrome-checker">
-          Read Exercise Prompt
+          Exercise Prompt
         </a>
         <a href="https://github.com/hdevilbiss/js-capstone/blob/main/src/js/palindrome.js">
           Source Code
@@ -69,6 +69,9 @@ const Palindrome = () => {
           <p key={idx}>{str}</p>
         ))}
       </div>
+      <span className="photo-credit">
+        Photo by <a href="https://unsplash.com/@andyjh07?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">Andy Holmes</a> on <a href="https://unsplash.com/s/photos/night-sky?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">Unsplash</a>
+      </span>
     </div>
   );
 }
