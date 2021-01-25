@@ -44,7 +44,7 @@ const Roman = () => {
           Convert a number less than 9999 to a Roman Numeral
         </h2>
         <a href="https://www.freecodecamp.org/learn/javascript-algorithms-and-data-structures/javascript-algorithms-and-data-structures-projects/roman-numeral-converter">
-          Read Exercise Prompt
+          Exercise Prompt
         </a>
         <a href="https://github.com/hdevilbiss/js-capstone/blob/main/src/js/convertToRoman.js">
           Source Code
@@ -54,11 +54,11 @@ const Roman = () => {
         <label htmlFor="roman-input">
           Enter a number from 1 to 9999
         </label>
-        <input type="text" id="roman-input" onChange={romanInputHandler} value={romanInput} />
+        <input type="number" id="roman-input" onChange={romanInputHandler} value={romanInput} />
         <span id="feedback-on-roman-input">{romanFeedback}</span>
       </div>
       <button id="button-input" onClick={submitRomanHandler}>
-        Test the word
+        Convert the number
       </button>
       <button id="button-clear" onClick={clearRomanHandler}>
         Clear the output
@@ -68,6 +68,9 @@ const Roman = () => {
           <p key={idx}>{str}</p>
         ))}
       </div>
+      <span className="photo-credit">
+        Photo by <a href="https://unsplash.com/@lilianovich?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">Lilian Dibbern</a> on <a href="https://unsplash.com/s/photos/roman?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">Unsplash</a>
+      </span>
     </div>
   );
 }
