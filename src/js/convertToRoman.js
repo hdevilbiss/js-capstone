@@ -69,8 +69,3 @@ const convertToRoman = (num) => {
 }
 
 module.exports = convertToRoman;
-
-console.log(convertToRoman("quack"));
-console.log(convertToRoman(2));
-console.log(convertToRoman("1"));
-console.log(convertToRoman(3493));

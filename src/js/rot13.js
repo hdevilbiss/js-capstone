@@ -21,15 +21,3 @@ const rot13 = (str = "") => {
 }
 
 module.exports = rot13;
-
-// FREE CODE CAMP
-console.log(rot13("SERR PBQR PNZC"))
-
-// FREE PIZZA!
-console.log(rot13("SERR CVMMN!"))
-
-// FREE LOVE?
-console.log(rot13("SERR YBIR?"))
-
-// 123
-console.log(rot13(123));
