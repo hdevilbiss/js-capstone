@@ -8,7 +8,6 @@ import "./style/app.scss";
  */
 import Palindrome from "./components/Palindrome";
 import Roman from "./components/Roman";
-import Rot from "./components/Rot";
 
 /**
  * Import Firebase SDK(s)
@@ -35,7 +34,6 @@ function App() {
       <div className="wrapper">
         <Palindrome />
         <Roman />
-        <Rot />
       </div>
     </div>
   );
