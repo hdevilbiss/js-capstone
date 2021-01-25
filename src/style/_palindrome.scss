@@ -1,6 +1,7 @@
 .palindrome {
-  background-color: #000;
-  background-image: url("../images/palindrome.png");
+  background-image: url("../images/andy-holmes-unsplash.jpg"),
+    linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5));
+  background-blend-mode: overlay;
   background-size: cover;
   border-radius: 10px;
   box-shadow: 5px 10px 5px #888;
