@@ -18,7 +18,7 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "mocha",
+    "test": "mocha --require babel-core/register ./test/**/*.js",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
@@ -40,6 +40,8 @@
     ]
   },
   "devDependencies": {
+    "babel-core": "^6.26.3",
+    "babel-register": "^6.26.0",
     "mocha": "^8.2.1"
   }
 }
