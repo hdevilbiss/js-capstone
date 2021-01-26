@@ -1,13 +1,13 @@
 /**
  *
  * @param {String} str
- * ROT13 shift cipher:
+ * ROTCIPHER shift cipher:
  * shift the letters in the string by
  * 13; e.g., A ==> N
  */
-const rot13 = (str = "") => {
+const rotCipher = (str = "") => {
   if (typeof str !== "string") return str;
-  const charArr = [...str];
+  const charArr = str.split("");
   const minChar = "A".charCodeAt();
   const maxChar = "Z".charCodeAt();
   return charArr.map((char) => {
@@ -18,6 +18,6 @@ const rot13 = (str = "") => {
         ? String.fromCharCode(maxChar - (13 - (charToCheck - minChar + 1)))
         : String.fromCharCode(charToCheck - 13);
   }).join("");
-};
+}
 
-module.exports = rot13;
+module.exports = rotCipher;

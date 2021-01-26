@@ -1,6 +1,6 @@
 import { useState } from "react";
+import rot13 from "../js/rot13";
 import "../style/_rot.scss";
-const rot13 = require("../js/rot13");
 
 const Rot = () => {
   /**
@@ -41,7 +41,7 @@ const Rot = () => {
     <div className="rot">
       <header>
         <h2>
-          Decode a ROT13 ciphered string
+          Decode a rot13 ciphered string
         </h2>
         <a href="https://www.freecodecamp.org/learn/javascript-algorithms-and-data-structures/javascript-algorithms-and-data-structures-projects/caesars-cipher">
           Exercise Prompt
@@ -52,7 +52,7 @@ const Rot = () => {
       </header>
       <div>
         <label htmlFor="rot-input">
-          Enter a ROT13-encoded string to decode it. Only UPPERCASE characters are applicable.
+          Enter a rot13-encoded string to decode it. Only UPPERCASE characters are applicable.
         </label>
         <input type="text" id="rot-input" onChange={rotInputHandler} value={rotInput} />
         <span id="feedback-on-rot-input">{rotFeedback}</span>
