@@ -1,16 +1,16 @@
-.roman {
-  background-image: url("../images/lilian-dibbern-unsplash.jpg"),
+.rot {
+  background-image: url("../images/markus-spiske-unsplash.jpg"),
     linear-gradient(rgba(255, 255, 255, 0.75), rgba(255, 255, 255, 0.75));
   background-blend-mode: overlay;
   background-size: cover;
   border: 2px solid #000;
   border-radius: 10px;
-  box-shadow: 5px 10px darkturquoise;
+  box-shadow: 5px 10px lime;
   margin: 2rem;
   padding: 1rem;
   button {
     border: 2px solid #000;
-    border-radius: 5px;
+    border-radius: 5px 0px 5px 0px;
     cursor: pointer;
     margin-top: 1rem;
     padding: 0.5rem;
@@ -26,6 +26,7 @@
     display: block;
     margin-bottom: 0.5rem;
     padding: 0.5rem;
+    width: 100%;
   }
   label {
     display: block;
@@ -36,20 +37,20 @@
     margin-bottom: 0.25rem;
   }
   #button-input {
-    background-color: paleturquoise;
+    background-color: palegreen;
     &:hover {
-      background-color: turquoise;
+      background-color: lime;
     }
   }
   #button-clear:hover {
-    background-color: paleturquoise;
+    background-color: lime;
   }
-  #feedback-on-roman-input {
+  #feedback-on-rot-input {
     display: inline-block;
     font-style: italic;
     margin-top: 0;
   }
-  #roman-output {
+  #rot-output {
     margin-top: 1rem;
   }
   @media screen and (max-width: 640px) {
