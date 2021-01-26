@@ -18,6 +18,6 @@ const rot13 = (str = "") => {
         ? String.fromCharCode(maxChar - (13 - (charToCheck - minChar + 1)))
         : String.fromCharCode(charToCheck - 13);
   }).join("");
-}
+};
 
 module.exports = rot13;
