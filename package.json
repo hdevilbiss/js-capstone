@@ -18,7 +18,9 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "mocha --require babel-core/register ./test/**/*.js",
+    "transpile": "babel src/js --out-dir public",
+    "babel:watch": "babel src/js --watch --out-dir public",
+    "test": "mocha",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
@@ -40,8 +42,10 @@
     ]
   },
   "devDependencies": {
-    "babel-core": "^6.26.3",
-    "babel-register": "^6.26.0",
+    "@babel/cli": "^7.12.10",
+    "@babel/core": "^7.12.10",
+    "@babel/preset-env": "^7.12.11",
+    "@babel/register": "^7.12.10",
     "mocha": "^8.2.1"
   }
 }
