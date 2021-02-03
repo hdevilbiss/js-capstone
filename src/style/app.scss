@@ -19,8 +19,18 @@ button {
   transition: 0.3s;
 }
 header {
-  margin-top: 1rem;
-  text-align: center;
+  align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  h1 {
+    font-family: "Luckiest Guy", sans-serif;
+    font-size: 3rem;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 1rem;
+    text-align: center;
+  }
 }
 label,
 input,
