@@ -25,46 +25,14 @@
     padding: 0.5rem;
     text-align: center;
   }
-  header {
-    align-items: center;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-  }
-  input {
-    border-radius: 5px;
-    display: block;
-    margin-bottom: 0.5rem;
-    padding: 0.5rem;
-  }
-  label {
-    display: block;
-    margin-bottom: 0.5rem;
-    margin-top: 0.5rem;
-  }
-  p {
-    margin-bottom: 0.25rem;
-  }
-  #button-input {
+  .button-input {
     background-color: #33ccff;
     &:hover {
       background-color: #cc00cc;
     }
   }
-  #button-clear:hover {
+  .button-clear:hover {
     background-color: black;
     color: white;
-  }
-  #feedback-on-palindrome-input {
-    display: inline-block;
-    font-style: italic;
-    margin-top: 0;
-  }
-  #palindrome-output {
-    margin-top: 1rem;
-  }
-  @media screen and (max-width: 640px) {
-    margin: 0.5rem;
-    padding: 0.5rem;
   }
 }
