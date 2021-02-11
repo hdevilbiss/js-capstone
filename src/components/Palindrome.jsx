@@ -39,7 +39,7 @@ const Palindrome = () => {
    * Return object
    */
   return (
-    <div className="palindrome">
+    <div className="palindrome card">
       <header>
         <h2>
           Palindrome Tester
@@ -56,15 +56,17 @@ const Palindrome = () => {
           Input a word
         </label>
         <input type="text" id="palindrome-input" onChange={palindromeInputHandler} value={palindromeInput} />
-        <span id="feedback-on-palindrome-input">{palindromeFeedback}</span>
+        <span className="feedback">{palindromeFeedback}</span>
       </div>
-      <button id="button-input" onClick={submitPalindromeHandler}>
-        Test the word
-      </button>
-      <button id="button-clear" onClick={clearPalindromeHandler}>
-        Clear the output
-      </button>
-      <div id="palindrome-output">
+      <div>
+        <button className="button-input" onClick={submitPalindromeHandler}>
+          Test the word
+        </button>
+        <button className="button-clear" onClick={clearPalindromeHandler}>
+          Clear the output
+        </button>
+      </div>
+      <div className="output">
         {palindromeOutput.map((str, idx) => (
           <p key={idx}>{str}</p>
         ))}

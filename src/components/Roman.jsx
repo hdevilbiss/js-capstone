@@ -38,7 +38,7 @@ const Roman = () => {
    * Return object
    */
   return (
-    <div className="roman">
+    <div className="roman card">
       <header>
         <h2>
           Convert a number less than 9999 to a Roman Numeral
@@ -55,15 +55,15 @@ const Roman = () => {
           Enter a number from 1 to 9999
         </label>
         <input type="number" id="roman-input" onChange={romanInputHandler} value={romanInput} />
-        <span id="feedback-on-roman-input">{romanFeedback}</span>
+        <span className="feedback">{romanFeedback}</span>
       </div>
-      <button id="button-input" onClick={submitRomanHandler}>
+      <button className="button-input" onClick={submitRomanHandler}>
         Convert the number
       </button>
-      <button id="button-clear" onClick={clearRomanHandler}>
+      <button className="button-clear" onClick={clearRomanHandler}>
         Clear the output
       </button>
-      <div id="roman-output">
+      <div className="output">
         {romanOutput.map((str, idx) => (
           <p key={idx}>{str}</p>
         ))}

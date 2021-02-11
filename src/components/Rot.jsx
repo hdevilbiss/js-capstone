@@ -38,7 +38,7 @@ const Rot = () => {
    * Return object
    */
   return (
-    <div className="rot">
+    <div className="rot card">
       <header>
         <h2>
           Decode a rot13 ciphered string
@@ -55,15 +55,15 @@ const Rot = () => {
           Enter a rot13-encoded string to decode it. Only UPPERCASE characters are applicable.
         </label>
         <input type="text" id="rot-input" onChange={rotInputHandler} value={rotInput} />
-        <span id="feedback-on-rot-input">{rotFeedback}</span>
+        <span className="feedback">{rotFeedback}</span>
       </div>
-      <button id="button-input" onClick={submitRotHandler}>
+      <button className="button-input" onClick={submitRotHandler}>
         Decode the STRING
       </button>
-      <button id="button-clear" onClick={clearRotHandler}>
+      <button className="button-clear" onClick={clearRotHandler}>
         Clear the output
       </button>
-      <div id="rot-output">
+      <div className="output">
         {rotOutput.map((str, idx) => (
           <p key={idx}>{str}</p>
         ))}
