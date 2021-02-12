@@ -1,5 +1,5 @@
 const assert = require("assert");
-const rot13 = require("../src/js/rot13");
+const rot13 = require("../src/js/src/rot13");
 
 describe("rot13 function test suite", () => {
   const testVars = [

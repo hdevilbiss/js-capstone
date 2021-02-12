@@ -31,6 +31,11 @@ function App() {
         <h1>
           JavaScript Capstone
         </h1>
+        <p>
+          <a href="https://github.com/hdevilbiss/js-capstone">
+            Source Code
+          </a>
+        </p>
       </header>
       <div className="wrapper">
         <Palindrome />

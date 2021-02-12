@@ -17,9 +17,9 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "build": "react-scripts build",
-    "transpile": "babel src/js --out-dir public",
-    "babel:watch": "babel src/js --watch --out-dir public",
+    "build": "npm run transpile && react-scripts build",
+    "transpile": "babel src/js/src --out-dir src/js/lib",
+    "transpile:watch": "babel src/js/src --watch --out-dir src/js/lib",
     "test": "mocha",
     "eject": "react-scripts eject"
   },

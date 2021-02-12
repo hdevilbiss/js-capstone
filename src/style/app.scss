@@ -19,8 +19,18 @@ button {
   transition: 0.3s;
 }
 header {
-  margin-top: 1rem;
-  text-align: center;
+  align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  h1 {
+    font-family: "Luckiest Guy", sans-serif;
+    font-size: 3rem;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 1rem;
+    text-align: center;
+  }
 }
 label,
 input,
@@ -29,10 +39,42 @@ button,
 a {
   font-size: 1.1rem;
 }
+input {
+  border-radius: 5px;
+  display: block;
+  margin-bottom: 0.5rem;
+  padding: 0.5rem;
+  width: 100%;
+}
+label {
+  display: block;
+  margin-bottom: 0.5rem;
+  margin-top: 0.5rem;
+}
+p {
+  margin-bottom: 0.25rem;
+}
+.card {
+  @media screen and (max-width: 640px) {
+    margin: 0.5rem;
+    padding: 0.5rem;
+  }
+}
+.feedback {
+  display: inline-block;
+  font-style: italic;
+  margin-top: 0;
+}
+.output {
+  margin-top: 1rem;
+  word-wrap: break-word;
+}
 .photo-credit {
+  align-self: flex-end;
   color: #888;
   font-size: 1rem;
   font-style: italic;
+  vertical-align: bottom;
 }
 .wrapper {
   margin-left: auto;

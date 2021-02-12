@@ -1,5 +1,5 @@
 import { useState } from "react";
-import rot13 from "../js/rot13";
+import rot13 from "../js/lib/rot13";
 import "../style/_rot.scss";
 
 const Rot = () => {
@@ -38,7 +38,7 @@ const Rot = () => {
    * Return object
    */
   return (
-    <div className="rot">
+    <div className="rot card">
       <header>
         <h2>
           Decode a rot13 ciphered string
@@ -46,31 +46,28 @@ const Rot = () => {
         <a href="https://www.freecodecamp.org/learn/javascript-algorithms-and-data-structures/javascript-algorithms-and-data-structures-projects/caesars-cipher">
           Exercise Prompt
         </a>
-        <a href="https://github.com/hdevilbiss/js-capstone/blob/main/src/js/rot13.js">
-          Source Code
-        </a>
       </header>
       <div>
         <label htmlFor="rot-input">
           Enter a rot13-encoded string to decode it. Only UPPERCASE characters are applicable.
         </label>
         <input type="text" id="rot-input" onChange={rotInputHandler} value={rotInput} />
-        <span id="feedback-on-rot-input">{rotFeedback}</span>
+        <span className="feedback">{rotFeedback}</span>
       </div>
-      <button id="button-input" onClick={submitRotHandler}>
+      <button className="button-input" onClick={submitRotHandler}>
         Decode the STRING
       </button>
-      <button id="button-clear" onClick={clearRotHandler}>
+      <button className="button-clear" onClick={clearRotHandler}>
         Clear the output
       </button>
-      <div id="rot-output">
+      <div className="output">
         {rotOutput.map((str, idx) => (
           <p key={idx}>{str}</p>
         ))}
       </div>
-      <span className="photo-credit">
+      <div className="photo-credit">
         Photo by <a href="https://unsplash.com/@markusspiske?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">Markus Spiske</a> on <a href="https://unsplash.com/s/photos/binary?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">Unsplash</a>
-      </span>
+      </div>
     </div>
   );
 }
