@@ -1,5 +1,3 @@
-"use strict";
-
 /**
  *
  * @param {String} strToCheck
