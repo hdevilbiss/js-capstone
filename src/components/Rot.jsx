@@ -1,5 +1,5 @@
 import { useState } from "react";
-import rot13 from "../js/rot13";
+import rot13 from "../js/lib/rot13";
 import "../style/_rot.scss";
 
 const Rot = () => {
@@ -68,9 +68,9 @@ const Rot = () => {
           <p key={idx}>{str}</p>
         ))}
       </div>
-      <span className="photo-credit">
+      <div className="photo-credit">
         Photo by <a href="https://unsplash.com/@markusspiske?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">Markus Spiske</a> on <a href="https://unsplash.com/s/photos/binary?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">Unsplash</a>
-      </span>
+      </div>
     </div>
   );
 }

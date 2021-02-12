@@ -1,5 +1,5 @@
 import { useState } from "react";
-import convertToRoman from "../js/convertToRoman";
+import convertToRoman from "../js/lib/convertToRoman";
 import "../style/_roman.scss";
 
 const Roman = () => {
@@ -68,9 +68,9 @@ const Roman = () => {
           <p key={idx}>{str}</p>
         ))}
       </div>
-      <span className="photo-credit">
+      <div className="photo-credit">
         Photo by <a href="https://unsplash.com/@lilianovich?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">Lilian Dibbern</a> on <a href="https://unsplash.com/s/photos/roman?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">Unsplash</a>
-      </span>
+      </div>
     </div>
   );
 }

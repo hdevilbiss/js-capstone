@@ -1,5 +1,5 @@
 import { useState } from "react";
-import palindrome from "../js/palindrome";
+import palindrome from "../js/lib/palindrome";
 
 const Palindrome = () => {
   /**
@@ -71,9 +71,9 @@ const Palindrome = () => {
           <p key={idx}>{str}</p>
         ))}
       </div>
-      <span className="photo-credit">
+      <div className="photo-credit">
         Photo by <a href="https://unsplash.com/@andyjh07?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">Andy Holmes</a> on <a href="https://unsplash.com/s/photos/night-sky?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">Unsplash</a>
-      </span>
+      </div>
     </div>
   );
 }
