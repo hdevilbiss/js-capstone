@@ -2,7 +2,7 @@
 
 React, Firebase, and ES6 JavaScript: Completing the 5 final projects for the freeCodeCamp JavaScript certificate.
 
-![Screenshot of the app showing 3 rectangles for palindrome, Roman numeral converter, and ROT13 decoder](src/images/screenshot.jpg)
+![Screenshot of the app showing 3 rectangles for palindrome, Roman numeral converter, and ROT13 decoder](src/images/screenshot.JPG)
 
 ## Tech Stack
 
