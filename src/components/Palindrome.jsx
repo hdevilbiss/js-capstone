@@ -47,9 +47,6 @@ const Palindrome = () => {
         <a href="https://www.freecodecamp.org/learn/javascript-algorithms-and-data-structures/javascript-algorithms-and-data-structures-projects/palindrome-checker">
           Exercise Prompt
         </a>
-        <a href="https://github.com/hdevilbiss/js-capstone/blob/main/src/js/palindrome.js">
-          Source Code
-        </a>
       </header>
       <div>
         <label htmlFor="palindrome-input">

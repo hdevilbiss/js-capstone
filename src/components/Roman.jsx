@@ -46,9 +46,6 @@ const Roman = () => {
         <a href="https://www.freecodecamp.org/learn/javascript-algorithms-and-data-structures/javascript-algorithms-and-data-structures-projects/roman-numeral-converter">
           Exercise Prompt
         </a>
-        <a href="https://github.com/hdevilbiss/js-capstone/blob/main/src/js/convertToRoman.js">
-          Source Code
-        </a>
       </header>
       <div>
         <label htmlFor="roman-input">
