@@ -67,8 +67,10 @@ p {
 }
 .output {
   margin-top: 1rem;
+  word-wrap: break-word;
 }
 .photo-credit {
+  align-self: flex-end;
   color: #888;
   font-size: 1rem;
   font-style: italic;
