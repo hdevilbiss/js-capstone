@@ -1,5 +1,5 @@
 const assert = require("assert");
-const convertToRoman = require("../src/js/convertToRoman");
+const convertToRoman = require("../src/js/src/convertToRoman");
 
 describe("convertToRoman function test suite", () => {
   const testArr = [];

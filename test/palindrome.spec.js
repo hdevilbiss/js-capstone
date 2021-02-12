@@ -1,5 +1,5 @@
 const assert = require("assert");
-const palindrome = require("../src/js/palindrome");
+const palindrome = require("../src/js/src/palindrome");
 
 describe("palindrome test suite", () => {
  it('should return a boolean value for a valid palindrome, "eye"', () => {
