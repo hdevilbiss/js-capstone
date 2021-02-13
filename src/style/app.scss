@@ -5,12 +5,8 @@
   padding: 0;
 }
 a {
-  color: blue;
-  &:visited {
-    color: darkorchid;
-  }
   &:hover {
-    color: black;
+    transition: all 0.3s ease;
   }
 }
 button {
@@ -54,8 +50,23 @@ label {
 p {
   margin-bottom: 0.25rem;
 }
+.btn {
+  background-color: #fff;
+  border: 1px solid #000;
+  border-radius: 5px;
+  display: inline-block;
+  margin-right: 1rem;
+  padding: 0.5rem 0.3rem 0.5rem 0.3rem;
+  transition: 0.4s;
+  a {
+    color: #000;
+  }
+  &:hover {
+    background-color: paleturquoise;
+  }
+}
 .card {
-  @media screen and (max-width: 640px) {
+  @media screen and (max-width: 800px) {
     margin: 0.5rem;
     padding: 0.5rem;
   }
