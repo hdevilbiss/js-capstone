@@ -1,6 +1,6 @@
 # JavaScript Capstone
 
-React, Firebase, and ES6 JavaScript: Completing the 5 final projects for the freeCodeCamp JavaScript certificate.
+Solutions to the 5 final projects for the [freeCodeCamp JavaScript Algorithms and Data Structures](https://www.freecodecamp.org/learn/javascript-algorithms-and-data-structures/) certificate.
 
 ![Screenshot of the app showing 3 rectangles for palindrome, Roman numeral converter, and ROT13 decoder](src/images/screenshot.JPG)
 
