@@ -2,6 +2,8 @@
  * Import style
  */
 import "./style/app.scss";
+import { faGithub } from '@fortawesome/free-brands-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 /**
  * Import components
@@ -31,11 +33,12 @@ function App() {
         <h1>
           JavaScript Capstone
         </h1>
-        <p>
+        <div class="btn">
           <a href="https://github.com/hdevilbiss/js-capstone">
-            Source Code
+          <FontAwesomeIcon icon={faGithub} />
+          Source Code
           </a>
-        </p>
+        </div>
       </header>
       <div className="wrapper">
         <Palindrome />
