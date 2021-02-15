@@ -1,7 +1,7 @@
 const assert = require("assert");
-const checkPhoneUSA = require("../src/js/src/checkPhoneUSA");
+const telephoneCheck = require("../src/js/src/telephoneCheck");
 
-describe("Test suite for checkPhoneUSA function", () => {
+describe("Test suite for telephoneCheck function", () => {
   const testArr = [
     ["555-555-5555", true],
     ["1 555-555-5555", true],
@@ -32,12 +32,12 @@ describe("Test suite for checkPhoneUSA function", () => {
   ];
 
   it("should return type boolean given a valid phone number",() => {
-    assert.strictEqual(typeof checkPhoneUSA("555-555-5555"), "boolean");
+    assert.strictEqual(typeof telephoneCheck("555-555-5555"), "boolean");
   });
 
   testArr.forEach(arr => {
     it(`should return ${arr[1]} given ${arr[0]}`, () => {
-      assert.strictEqual(checkPhoneUSA(arr[0]), arr[1]);
+      assert.strictEqual(telephoneCheck(arr[0]), arr[1]);
     });
   });
 });
