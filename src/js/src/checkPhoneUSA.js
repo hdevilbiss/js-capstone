@@ -4,10 +4,13 @@
  * Return whether a given string is a valid U.S. phone number: T/F
  */
 const checkPhoneUSA = (str) => {
-  let trimStr = str.trim();
+  const trimStr = str.trim();
   if (trimStr.length < 10) return false;
-  // let parenthesesRegex = "";
-  return true;
+  const regex = /^(1?\s?)(\(\d{3}\)|\d{3})(-?\s?\d{3})(-?\s?\d{4})$/gm;
+  const matches = trimStr.match(regex);
+  return matches === null
+    ? false
+    : true;
 }
 
 module.exports = checkPhoneUSA;
