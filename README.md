@@ -8,7 +8,11 @@ React, Firebase, and ES6 JavaScript: Completing the 5 final projects for the fre
 
 _This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app)._
 
-This project is a React app with Mocha unit tests and Sass stylesheets, deployed to Google Firebase hosting.
+- JavaScript Framework / Library: React
+- Unit Testing: Mocha
+- Styling: Sass
+- Hosting: Google Firebase
+- Continuous Integration: GitHub Actions
 
 ## Live Preview
 
