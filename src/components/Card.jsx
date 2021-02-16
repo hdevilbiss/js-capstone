@@ -1,32 +1,32 @@
 import slugify from "../js/lib/slugify.js";
 
-const Card = ({ name, heading, promptLink, inputLabel, inputHandler, inputValue, inputFeedback, submitHandler, submitButtonText, clearHandler, clearButtonText, outputArray, bgArtistLink, bgArtistName, bgPhotoLink, bgPhotoVendor }) => {
+const Card = ({ object, inputHandler, inputValue, inputFeedback, submitHandler, clearHandler, outputArray}) => {
   return (
-    <div className={`card ${slugify(name) ?? ""}`}>
+    <div className={`card ${slugify(object.name) ?? ""}`}>
       <header>
         <h2>
-          {heading}
+          {object.heading}
         </h2>
-        <a href={promptLink}>
+        <a href={object.promptLink}>
           Prompt
         </a>
       </header>
       <section>
         <div>
-          <label htmlFor={`${slugify(name)}-input`}>
-          {inputLabel}
+          <label htmlFor={`${slugify(object.name)}-input`}>
+          {object.inputLabel}
           </label>
-          <input type="text" id={`${slugify(name)}`} onChange={inputHandler} value={inputValue} />
+          <input type={object.inputType} id={`${slugify(object.name)}-input`} onChange={inputHandler} value={inputValue} />
           <span className="feedback">
-          {inputFeedback}
+            {inputFeedback}
           </span>
         </div>
         <div>
           <button className="button-input" onClick={submitHandler}>
-            {submitButtonText}
+            {object.submitButtonText}
           </button>
           <button className="button-clear" onClick={clearHandler}>
-            {clearButtonText}
+            {object.clearButtonText}
           </button>
         </div>
         <div className="output">
@@ -35,7 +35,7 @@ const Card = ({ name, heading, promptLink, inputLabel, inputHandler, inputValue,
           ))}
         </div>
         <div className="photo-credit">
-          Photo by <a href={bgArtistLink}>{bgArtistName}</a> on <a href={bgPhotoLink}>{bgPhotoVendor}</a>
+          Photo by <a href={object.bgArtistLink}>{object.bgArtistName}</a> on <a href={object.bgPhotoLink}>{object.bgPhotoVendor}</a>
         </div>
       </section>
     </div>
