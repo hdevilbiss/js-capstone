@@ -6,7 +6,7 @@ function MakeCards() {
       id: uuidv4(),
       heading: "Palindrome Tester",
       promptLink: "https://www.freecodecamp.org/learn/javascript-algorithms-and-data-structures/javascript-algorithms-and-data-structures-projects/palindrome-checker",
-      inputLabel: "Input a word",
+      inputLabel: "Input a word to check whether it is a palindrome",
       inputType: "text",
       submitButtonText: "Test the word",
       clearButtonText: "Clear output",
@@ -26,7 +26,7 @@ function MakeCards() {
       id: uuidv4(),
       heading: "Roman Numeral Converter",
       promptLink: "https://www.freecodecamp.org/learn/javascript-algorithms-and-data-structures/javascript-algorithms-and-data-structures-projects/roman-numeral-converter",
-      inputLabel: "Enter a number from 1 to 9999",
+      inputLabel: "Enter a number from 1 to 9999 to convert it to Roman numerals",
       inputType: "number",
       submitButtonText: "Convert Number",
       clearButtonText: "Clear output",
@@ -59,6 +59,26 @@ function MakeCards() {
       bgArtistLink: "https://unsplash.com/@markusspiske?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText",
       bgArtistName: "Markus Spiske",
       bgPhotoLink: "https://unsplash.com/s/photos/binary?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText",
+      bgPhotoVendor: "Unsplash"
+    },
+    {
+      name: "Telephone",
+      id: uuidv4(),
+      heading: "USA Telephone Validator",
+      promptLink: "https://www.freecodecamp.org/learn/javascript-algorithms-and-data-structures/javascript-algorithms-and-data-structures-projects/telephone-number-validator",
+      inputLabel: "Enter a US phone number to check it",
+      inputType: "text",
+      submitButtonText: "Check phone number",
+      clearButtonText: "Clear output",
+      validation: [
+        {
+          regex: /\w/,
+          message: ""
+        }
+      ],
+      bgArtistLink: "https://unsplash.com/@trine?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText",
+      bgArtistName: "Katrin Hauf",
+      bgPhotoLink: "https://unsplash.com/s/photos/telephone?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText",
       bgPhotoVendor: "Unsplash"
     }
   ];

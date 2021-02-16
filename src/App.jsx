@@ -12,6 +12,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Palindrome from "./components/Palindrome";
 import Roman from "./components/Roman";
 import Rot from "./components/Rot";
+import Telephone from "./components/Telephone";
 
 /**
  * Import data
@@ -38,6 +39,7 @@ function App() {
    */
   const [cards, setCards] = useState(data());
   console.log(cards);
+  console.log(cards.find(obj => obj.name === "Telephone"));
 
   return (
     <div className="App">
@@ -57,6 +59,7 @@ function App() {
           <Palindrome object={cards.find(obj => obj.name === "Palindrome")} />
           <Roman object={cards.find(obj => obj.name === "Roman")} />
           <Rot object={cards.find(obj => obj.name === "Rot")} />
+          <Telephone object={cards.find(obj => obj.name === "Telephone")} />
         </div>
       </main>
     </div>
