@@ -31,7 +31,9 @@
     color: white;
   }
   .output {
-    background-image: #000;
-    color: #cc00cc;
+    background-color: #000;
+    background-image: none;
+    box-shadow: 5px 5px 5px #000;
+    color: #FFF;
   }
 }
