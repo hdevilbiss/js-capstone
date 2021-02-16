@@ -1,3 +1,4 @@
+import { useState } from "react";
 /**
  * Import style
  */
@@ -11,6 +12,11 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Palindrome from "./components/Palindrome";
 import Roman from "./components/Roman";
 import Rot from "./components/Rot";
+
+/**
+ * Import data
+ */
+import data from "./data";
 
 /**
  * Import Firebase SDK(s)
@@ -27,24 +33,32 @@ firebase.initializeApp({
 });
 
 function App() {
+  /**
+   * State
+   */
+  const [cards, setCards] = useState(data());
+  console.log(cards);
+
   return (
     <div className="App">
       <header>
         <h1>
           JavaScript Capstone
         </h1>
-        <div class="btn">
+        <div className="btn">
           <a href="https://github.com/hdevilbiss/js-capstone">
           <FontAwesomeIcon icon={faGithub} />
           Source Code
           </a>
         </div>
       </header>
-      <div className="wrapper">
-        <Palindrome />
-        <Roman />
-        <Rot />
-      </div>
+      <main>
+        <div className="wrapper">
+          <Palindrome object={cards.find(obj => obj.name === "Palindrome")} />
+          <Roman object={cards.find(obj => obj.name === "Roman")} />
+          <Rot object={cards.find(obj => obj.name === "Rot")} />
+        </div>
+      </main>
     </div>
   );
 }
