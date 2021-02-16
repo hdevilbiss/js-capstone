@@ -37,8 +37,6 @@ function App() {
    * State
    */
   const cards = data();
-  console.log(cards);
-  console.log(cards.find(obj => obj.name === "Telephone"));
 
   return (
     <div className="App">
