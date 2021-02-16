@@ -3,7 +3,7 @@ var slugify = function slugify() {
   var regex = /\s|,|-|\./;
   var arr = str.toLowerCase().split(regex);
   return arr.filter(function (char) {
-    char !== "";
+    return char !== "";
   }).join("-");
 };
 

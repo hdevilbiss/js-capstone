@@ -2,6 +2,8 @@
  * Import style
  */
 import "./style/app.scss";
+import { faGithub } from '@fortawesome/free-brands-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 /**
  * Import components
@@ -9,6 +11,12 @@ import "./style/app.scss";
 import Palindrome from "./components/Palindrome";
 import Roman from "./components/Roman";
 import Rot from "./components/Rot";
+import Telephone from "./components/Telephone";
+
+/**
+ * Import data
+ */
+import data from "./data";
 
 /**
  * Import Firebase SDK(s)
@@ -25,23 +33,32 @@ firebase.initializeApp({
 });
 
 function App() {
+  /**
+   * State
+   */
+  const cards = data();
+
   return (
     <div className="App">
       <header>
         <h1>
           JavaScript Capstone
         </h1>
-        <p>
+        <div className="btn">
           <a href="https://github.com/hdevilbiss/js-capstone">
-            Source Code
+          <FontAwesomeIcon icon={faGithub} />
+          Source Code
           </a>
-        </p>
+        </div>
       </header>
-      <div className="wrapper">
-        <Palindrome />
-        <Roman />
-        <Rot />
-      </div>
+      <main>
+        <div className="wrapper">
+          <Palindrome object={cards.find(obj => obj.name === "Palindrome")} />
+          <Roman object={cards.find(obj => obj.name === "Roman")} />
+          <Rot object={cards.find(obj => obj.name === "Rot")} />
+          <Telephone object={cards.find(obj => obj.name === "Telephone")} />
+        </div>
+      </main>
     </div>
   );
 }
