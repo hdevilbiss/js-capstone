@@ -1,6 +1,5 @@
 import { useState } from "react";
 import rot13 from "../js/lib/rot13";
-import "../style/_rot.scss";
 import Card from "./Card";
 
 const Rot = ({ object }) => {

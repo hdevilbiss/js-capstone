@@ -1,6 +1,5 @@
 import { useState } from "react";
 import convertToRoman from "../js/lib/convertToRoman";
-import "../style/_roman.scss";
 import Card from "../components/Card";
 
 const Roman = ({ object }) => {
@@ -23,14 +22,14 @@ const Roman = ({ object }) => {
     }
     else {
       setRomanOutput([...romanOutput, convertToRoman(romanInput)]);
-      setRomanFeedback("");
+      setRomanFeedback([]);
       setRomanInput("");
     }
     document.getElementById("roman-input").focus();
   }
   const clearRomanHandler = () => {
     setRomanInput("");
-    setRomanFeedback("");
+    setRomanFeedback([]);
     setRomanOutput([]);
     document.getElementById("roman-input").focus();
   };
