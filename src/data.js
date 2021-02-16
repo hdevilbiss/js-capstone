@@ -7,6 +7,7 @@ function MakeCards() {
       heading: "Palindrome Tester",
       promptLink: "https://www.freecodecamp.org/learn/javascript-algorithms-and-data-structures/javascript-algorithms-and-data-structures-projects/palindrome-checker",
       inputLabel: "Input a word",
+      inputType: "text",
       submitButtonText: "Test the word",
       clearButtonText: "Clear output",
       validation: [
@@ -23,16 +24,41 @@ function MakeCards() {
     {
       name: "Roman",
       id: uuidv4(),
-      jsPath: "",
-      scssPath: "",
-      heading: "Palindrome Tester",
-      promptLink: "",
-      inputLabel: "",
-      submitButtonText: "",
-      clearButtonText: "",
-      bgArtistLink: "",
-      bgArtistName: "",
-      bgPhotoLink: "",
+      heading: "Roman Numeral Converter",
+      promptLink: "https://www.freecodecamp.org/learn/javascript-algorithms-and-data-structures/javascript-algorithms-and-data-structures-projects/roman-numeral-converter",
+      inputLabel: "Enter a number from 1 to 9999",
+      inputType: "number",
+      submitButtonText: "Convert Number",
+      clearButtonText: "Clear output",
+      validation: [
+        {
+          regex: /\d{1,4}/,
+          message: "A number from 1 to 9999"
+        }
+      ],
+      bgArtistLink: "https://unsplash.com/@lilianovich?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText",
+      bgArtistName: "Lilian Dibbern",
+      bgPhotoLink: "https://unsplash.com/s/photos/roman?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText",
+      bgPhotoVendor: "Unsplash"
+    },
+    {
+      name: "Rot",
+      id: uuidv4(),
+      heading: "ROT13 Cipher Decoder",
+      promptLink: "https://www.freecodecamp.org/learn/javascript-algorithms-and-data-structures/javascript-algorithms-and-data-structures-projects/caesars-cipher",
+      inputLabel: "Enter an UPPERCASE rot13-encoded string to decode it",
+      inputType: "text",
+      submitButtonText: "Decode string",
+      clearButtonText: "Clear output",
+      validation: [
+        {
+          regex: /[A-Z]/,
+          message: "UPPERCASE from A to Z"
+        }
+      ],
+      bgArtistLink: "https://unsplash.com/@markusspiske?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText",
+      bgArtistName: "Markus Spiske",
+      bgPhotoLink: "https://unsplash.com/s/photos/binary?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText",
       bgPhotoVendor: "Unsplash"
     }
   ];
