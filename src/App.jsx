@@ -1,4 +1,3 @@
-import { useState } from "react";
 /**
  * Import style
  */
@@ -37,7 +36,7 @@ function App() {
   /**
    * State
    */
-  const [cards, setCards] = useState(data());
+  const cards = data();
   console.log(cards);
   console.log(cards.find(obj => obj.name === "Telephone"));
 
