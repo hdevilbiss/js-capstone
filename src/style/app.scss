@@ -5,15 +5,24 @@
   padding: 0;
 }
 a {
+  color: #000;
+  transition: all 0.3s ease;
   &:hover {
-    transition: all 0.3s ease;
+    color: #00F;
   }
 }
 button {
   display: inline-block;
   margin-right: 1rem;
+  border: 2px solid black;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 1rem;
+  padding: 0.5rem;
+  text-align: center;
   transition: 0.3s;
 }
+
 header {
   align-items: center;
   display: flex;
@@ -55,17 +64,26 @@ p {
   border: 1px solid #000;
   border-radius: 5px;
   display: inline-block;
-  margin-right: 1rem;
+  margin-left: auto;
+  margin-right: auto;
   padding: 0.5rem 0.3rem 0.5rem 0.3rem;
   transition: 0.4s;
-  a {
-    color: #000;
-  }
   &:hover {
     background-color: paleturquoise;
   }
 }
+.button-input {
+  background-color: paleturquoise;
+  &:hover {
+    background-color: turquoise;
+  }
+}
+.button-clear:hover {
+  background-color: paleturquoise;
+}
 .card {
+  margin: 1rem;
+  padding: 1rem;
   @media screen and (max-width: 800px) {
     margin: 0.5rem;
     padding: 0.5rem;
@@ -77,8 +95,18 @@ p {
   margin-top: 0;
 }
 .output {
+  background-image: linear-gradient(rgba(255, 255, 255, 0.75), rgba(255, 255, 255, 0.75));
+  border-radius: 2.5px;
+  box-shadow: 5px 5px 5px #000;
+  color: #000;
   margin-top: 1rem;
+  padding-left: 0.25rem;
+  padding-right: 0.25rem;
   word-wrap: break-word;
+  p {
+    font-size: 1.5rem;
+    font-weight: bold;
+  }
 }
 .photo-credit {
   align-self: flex-end;
@@ -97,3 +125,6 @@ p {
   }
 }
 @import "./palindrome";
+@import "./roman";
+@import "./rot";
+@import "./telephone";
