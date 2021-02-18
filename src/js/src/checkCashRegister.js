@@ -19,18 +19,28 @@ const checkCashRegister = (price, cash, cid) => {
     ["TWENTY", 20],
     ["ONE HUNDRED", 100]
   ];
-  const cashInDrawer = cid.map(([currency, amount]) => {
-    const unitOfCurrency = refArr.find(arr => arr[0] === currency);
-    return amount / unitOfCurrency[1];
-  }).reduce((sum, curr) => sum + curr);
-  console.log(`cashInDrawer: ${cashInDrawer}`);
+
+  // Get the amount of cash in drawer (unit $1.00)
+  const cashInDrawer = Math.round(cid.reduce((sum, currArr) => {
+    return sum + currArr[1];
+  }, 0) * 100) / 100;
+
+  // Change Amount
   let changeAmount = cash - price;
+
+  console.log(`cashInDrawer: ${cashInDrawer}`);
   console.log(`change: ${changeAmount}`);
 
   let status = "";
   let change = [];
 
-  if (changeAmount < 0 || changeAmount > cashInDrawer) status = "INSUFFICIENT_FUNDS";
+  if (cashInDrawer < changeAmount || changeAmount < 0) status = "INSUFFICIENT_FUNDS";
+
+  if (cashInDrawer === changeAmount) {
+    status = "CLOSED";
+    change = [...cid];
+    console.log(change);
+  }
 
   /** Hundreds */
   console.log(changeAmount % 100);
