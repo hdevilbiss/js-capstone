@@ -23,13 +23,13 @@ describe("Test suite for checkCashRegister", () => {
   );
 
   it(`should return an object given ${testArr[0][0]}`, () => {
-    assert.strictEqual(typeof checkCashRegister(testArr[0][0]), "object");
+    assert.strictEqual(typeof checkCashRegister(testArr[0][0][0], testArr[0][0][1], testArr[0][0][2]), "object");
   });
 
   // Loop through all tests
   testArr.forEach(([input, expectedResult]) => {
     it(`should return ${JSON.stringify(expectedResult)} given ${input}`, () => {
-      assert.deepStrictEqual(checkCashRegister(input), expectedResult);
+      assert.deepStrictEqual(checkCashRegister(input[0], input[1], input[2]), expectedResult);
     });
   });
 });
