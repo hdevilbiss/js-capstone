@@ -60,9 +60,12 @@ const checkCashRegister = (price = 0, cash = 0, cid = []) => {
 
       if (neededQty > 0 && actualQty >= neededQty) {
         returnChange.change = [...returnChange.change, [currency, neededQty * value]];
+        remainingBalance %= value;
       }
-
-      remainingBalance %= value;
+    }
+    if (remainingBalance !== 0) {
+      returnChange.status = "INSUFFICIENT_FUNDS";
+      returnChange.change = [];
     }
   }
 
