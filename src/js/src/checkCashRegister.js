@@ -14,7 +14,7 @@ const checkCashRegister = (price = 0, cash = 0, cid = []) => {
   let changeAmount = cash - price;
 
   const CashRegister = {
-    status: "INSUFFICIENT_FUNDS",
+    status: "OPEN",
     change: [],
   };
 
@@ -31,53 +31,35 @@ const checkCashRegister = (price = 0, cash = 0, cid = []) => {
   ];
 
   /** Get the amount of cash in drawer (unit $1.00) */
-  const cashInDrawer = Math.round(cid.reduce((sum, currArr) => {
-    return sum + currArr[1];
-  }, 0) * 100) / 100;
+  const cashInDrawer = Math.round(cid.reduce((sum, [,amtCash]) => sum + amtCash, 0) * 100) / 100;
 
-  console.log(`cid: ${JSON.stringify(cid)}`);
+  // console.log(`cid: ${JSON.stringify(cid)}`);
   console.log(`cashInDrawer: ${cashInDrawer}`);
   console.log(`changeAmount: ${changeAmount}`);
 
-  /** Not enough cash in register or not enough cash given by customer */
-  if (cashInDrawer < changeAmount || changeAmount < 0) {
+  /** Customer gave insufficient funds */
+  if (cash - price < 0) {
     CashRegister.status = "INSUFFICIENT_FUNDS";
+    return CashRegister;
   }
-  /** Return all the cash in drawer and close */
-  else if (cashInDrawer === changeAmount) {
+
+  /** Customer gave exact change */
+  if (cash - price === 0) return CashRegister;
+
+  /** Not enough cash in drawer to give change */
+  if (cashInDrawer < changeAmount) {
+    CashRegister.status = "INSUFFICIENT_FUNDS";
+    return CashRegister;
+  }
+
+  /** Drawer has just enough change */
+  if (cashInDrawer === changeAmount) {
     CashRegister.status = "CLOSED";
     CashRegister.change = [...cid];
-  }
-  else {
-    let remainingBalance = changeAmount;
-
-    for (let i = refArr.length - 1; i >= 0; i--) {
-      let currency = refArr[i][0];
-      let value = refArr[i][1];
-      let neededQty = Math.round(((remainingBalance / value) * 100) / 100);
-      let actualQty = Math.round(((cid[i][1] / value) * 100) / 100);
-
-      console.log(`neededQty of ${value}: ${neededQty}`);
-      console.log(`actualQty of ${value}: ${actualQty}`);
-
-      if (neededQty > 0 && actualQty >= neededQty) {
-        CashRegister.change = [...CashRegister.change, [currency, neededQty * value]];
-        remainingBalance %= value;
-      }
-      else if (neededQty > 0 && actualQty < neededQty) {
-        CashRegister.change = [...CashRegister.change, [currency, actualQty * value]];
-        remainingBalance -= (actualQty * value);
-      }
-      console.log(`remainingBalance: ${remainingBalance}`);
-    }
-    console.log(`remainingBalance: ${remainingBalance.toFixed(2)}`);
-    if (remainingBalance.toFixed(2) !== 0) {
-      CashRegister.status = "INSUFFICIENT_FUNDS";
-      CashRegister.change = [];
-    }
+    return CashRegister;
   }
 
-  return CashRegister;
+  /** You need change */
 }
 
 module.exports = checkCashRegister;
