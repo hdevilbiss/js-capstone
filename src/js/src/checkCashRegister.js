@@ -1,7 +1,9 @@
 /**
  *
- * @param {Array}
- * The price of a purchase,
+ * @param {Number} price
+ * @param {Number} cash
+ * @param {Array} cid
+ * Given the price of a purchase,
  * the amount of cash given by a customer,
  * and the cash-in-drawer (cid) array,
  * return the customer's change
@@ -52,8 +54,8 @@ const checkCashRegister = (price = 0, cash = 0, cid = []) => {
     for (let i = refArr.length - 1; i >= 0; i--) {
       let currency = refArr[i][0];
       let value = refArr[i][1];
-      let neededQty = Math.floor(remainingBalance / value);
-      let actualQty = Math.floor(cid[i][1] / value);
+      let neededQty = Math.round(((remainingBalance / value) * 100) / 100);
+      let actualQty = Math.round(((cid[i][1] / value) * 100) / 100);
 
       console.log(`neededQty of ${value}: ${neededQty}`);
       console.log(`actualQty of ${value}: ${actualQty}`);
@@ -62,9 +64,14 @@ const checkCashRegister = (price = 0, cash = 0, cid = []) => {
         returnChange.change = [...returnChange.change, [currency, neededQty * value]];
         remainingBalance %= value;
       }
+      else if (neededQty > 0 && actualQty < neededQty) {
+        returnChange.change = [...returnChange.change, [currency, actualQty * value]];
+        remainingBalance -= (actualQty * value);
+      }
+      console.log(`remainingBalance: ${remainingBalance}`);
     }
-    console.log(`remainingBalance: ${remainingBalance}`);
-    if (remainingBalance !== 0) {
+    console.log(`remainingBalance: ${remainingBalance.toFixed(2)}`);
+    if (remainingBalance.toFixed(2) !== 0) {
       returnChange.status = "INSUFFICIENT_FUNDS";
       returnChange.change = [];
     }
@@ -75,8 +82,6 @@ const checkCashRegister = (price = 0, cash = 0, cid = []) => {
 
 module.exports = checkCashRegister;
 
-console.log(checkCashRegister(19.5, 20, [["PENNY", 1.01], ["NICKEL", 2.05], ["DIME", 3.1], ["QUARTER", 4.25], ["ONE", 90], ["FIVE", 55], ["TEN", 20], ["TWENTY", 60], ["ONE HUNDRED", 100]]));
-
-console.log(checkCashRegister(19.5, 20, [["PENNY", 0.01], ["NICKEL", 0], ["DIME", 0], ["QUARTER", 0], ["ONE", 0], ["FIVE", 0], ["TEN", 0], ["TWENTY", 0], ["ONE HUNDRED", 0]]));
-
 console.log(checkCashRegister(3.26, 100, [["PENNY", 1.01], ["NICKEL", 2.05], ["DIME", 3.1], ["QUARTER", 4.25], ["ONE", 90], ["FIVE", 55], ["TEN", 20], ["TWENTY", 60], ["ONE HUNDRED", 100]]));
+
+console.log(checkCashRegister(19.5, 20, [["PENNY", 0.01], ["NICKEL", 0], ["DIME", 0], ["QUARTER", 0], ["ONE", 1], ["FIVE", 0], ["TEN", 0], ["TWENTY", 0], ["ONE HUNDRED", 0]]));
