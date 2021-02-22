@@ -18,7 +18,7 @@ const checkCashRegister = (price = 0, cash = 0, cid = []) => {
     change: [],
   };
 
-  const refArr = [
+  const CurrencyInfo = [
     ["PENNY", 0.01],
     ["NICKEL", 0.05],
     ["DIME", 0.1],
@@ -28,7 +28,7 @@ const checkCashRegister = (price = 0, cash = 0, cid = []) => {
     ["TEN", 10],
     ["TWENTY", 20],
     ["ONE HUNDRED", 100]
-  ];
+  ].reverse();
 
   /** Get the amount of cash in drawer (unit $1.00) */
   const cashInDrawer = Math.round(cid.reduce((sum, [,amtCash]) => sum + amtCash, 0) * 100) / 100;
@@ -60,6 +60,39 @@ const checkCashRegister = (price = 0, cash = 0, cid = []) => {
   }
 
   /** You need change */
+  let remainingBalance = changeAmount;
+
+  CurrencyInfo.forEach(([currency, valueUSD], idx) => {
+    let modulus = Math.floor(((remainingBalance / valueUSD)));
+
+    console.log(`remainingBalance: ${remainingBalance}`);
+    console.log(`balance % currency ${valueUSD} is ${modulus}`);
+
+    if (modulus !== 0) {
+      let actualQty = cid[cid.length - 1 - idx][1];
+      let neededQty = modulus * valueUSD;
+
+      console.log(`actual in drawer: ${actualQty}`);
+      console.log(`needed: ${neededQty}`);
+
+      if (actualQty <= neededQty) {
+        CashRegister.change = [...CashRegister.change, [currency, actualQty]];
+        remainingBalance =  Math.round(((remainingBalance - actualQty) * 100) / 100)
+      }
+      else {
+        CashRegister.change = [...CashRegister.change, [currency, neededQty]];
+        remainingBalance = Math.round(((remainingBalance - neededQty) * 100) / 100);
+      }
+    }
+  });
+
+  console.log(`FINAL remainingBalance: ${remainingBalance}`);
+
+  if (remainingBalance !== 0) {
+    CashRegister.status = "INSUFFICIENT_FUNDS";
+    CashRegister.change = [];
+  }
+  return CashRegister;
 }
 
 module.exports = checkCashRegister;
