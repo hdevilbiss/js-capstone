@@ -59,32 +59,13 @@ const checkCashRegister = (price = 0, cash = 0, cid = []) => {
     return CashRegister;
   }
 
-  /** You need change */
-  let remainingBalance = changeAmount;
+  console.log(cid.reverse());
 
-  CurrencyInfo.forEach(([currency, valueUSD], idx) => {
-    let modulus = Math.floor(((remainingBalance / valueUSD)));
-
-    console.log(`remainingBalance: ${remainingBalance}`);
-    console.log(`balance % currency ${valueUSD} is ${modulus}`);
-
-    if (modulus !== 0) {
-      let actualQty = cid[cid.length - 1 - idx][1];
-      let neededQty = modulus * valueUSD;
-
-      console.log(`actual in drawer: ${actualQty}`);
-      console.log(`needed: ${neededQty}`);
-
-      if (actualQty <= neededQty) {
-        CashRegister.change = [...CashRegister.change, [currency, actualQty]];
-        remainingBalance =  Math.round(((remainingBalance - actualQty) * 100) / 100)
-      }
-      else {
-        CashRegister.change = [...CashRegister.change, [currency, neededQty]];
-        remainingBalance = Math.round(((remainingBalance - neededQty) * 100) / 100);
-      }
-    }
-  });
+  /** You need some change */
+  let remainingBalance = cid.reverse().reduce((remainingBalance, [currency, amt], idx) => {
+    console.log(remainingBalance);
+    return remainingBalance;
+  }, changeAmount);
 
   console.log(`FINAL remainingBalance: ${remainingBalance}`);
 
