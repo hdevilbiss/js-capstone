@@ -13,8 +13,8 @@ const checkCashRegister = (price = 0, cash = 0, cid = []) => {
 
   let changeAmount = cash - price;
 
-  const returnChange = {
-    status: "OPEN",
+  const CashRegister = {
+    status: "INSUFFICIENT_FUNDS",
     change: [],
   };
 
@@ -41,12 +41,12 @@ const checkCashRegister = (price = 0, cash = 0, cid = []) => {
 
   /** Not enough cash in register or not enough cash given by customer */
   if (cashInDrawer < changeAmount || changeAmount < 0) {
-    returnChange.status = "INSUFFICIENT_FUNDS";
+    CashRegister.status = "INSUFFICIENT_FUNDS";
   }
   /** Return all the cash in drawer and close */
   else if (cashInDrawer === changeAmount) {
-    returnChange.status = "CLOSED";
-    returnChange.change = [...cid];
+    CashRegister.status = "CLOSED";
+    CashRegister.change = [...cid];
   }
   else {
     let remainingBalance = changeAmount;
@@ -61,23 +61,23 @@ const checkCashRegister = (price = 0, cash = 0, cid = []) => {
       console.log(`actualQty of ${value}: ${actualQty}`);
 
       if (neededQty > 0 && actualQty >= neededQty) {
-        returnChange.change = [...returnChange.change, [currency, neededQty * value]];
+        CashRegister.change = [...CashRegister.change, [currency, neededQty * value]];
         remainingBalance %= value;
       }
       else if (neededQty > 0 && actualQty < neededQty) {
-        returnChange.change = [...returnChange.change, [currency, actualQty * value]];
+        CashRegister.change = [...CashRegister.change, [currency, actualQty * value]];
         remainingBalance -= (actualQty * value);
       }
       console.log(`remainingBalance: ${remainingBalance}`);
     }
     console.log(`remainingBalance: ${remainingBalance.toFixed(2)}`);
     if (remainingBalance.toFixed(2) !== 0) {
-      returnChange.status = "INSUFFICIENT_FUNDS";
-      returnChange.change = [];
+      CashRegister.status = "INSUFFICIENT_FUNDS";
+      CashRegister.change = [];
     }
   }
 
-  return returnChange;
+  return CashRegister;
 }
 
 module.exports = checkCashRegister;
