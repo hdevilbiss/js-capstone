@@ -27,9 +27,9 @@ describe("Test suite for checkCashRegister", () => {
   });
 
   // Loop through all tests
-  testArr.forEach(([input, expectedResult]) => {
-    it(`should return ${JSON.stringify(expectedResult)} given ${input}`, () => {
-      assert.deepStrictEqual(checkCashRegister(input[0], input[1], input[2]), expectedResult);
+  testArr.forEach(([[price, cash, cid], expectedResult]) => {
+    it(`should return ${JSON.stringify(expectedResult)} given ${price}, ${cash}, ${JSON.stringify(cid)}`, () => {
+      assert.deepStrictEqual(checkCashRegister(price, cash, cid), expectedResult);
     });
   });
 });
