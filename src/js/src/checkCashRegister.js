@@ -34,8 +34,8 @@ const checkCashRegister = (price = 0, cash = 0, cid = []) => {
   const cashInDrawer = Math.round(cid.reduce((sum, [,amtCash]) => sum + amtCash, 0) * 100) / 100;
 
   // console.log(`cid: ${JSON.stringify(cid)}`);
-  console.log(`cashInDrawer: ${cashInDrawer}`);
-  console.log(`changeAmount: ${changeAmount}`);
+  // console.log(`cashInDrawer: ${cashInDrawer}`);
+  // console.log(`changeAmount: ${changeAmount}`);
 
   /** Customer gave insufficient funds */
   if (cash - price < 0) {
@@ -59,25 +59,51 @@ const checkCashRegister = (price = 0, cash = 0, cid = []) => {
     return CashRegister;
   }
 
-  console.log(cid.reverse());
-
   /** You need some change */
   let remainingBalance = cid.reverse().reduce((remainingBalance, [currency, amt], idx) => {
-    console.log(remainingBalance);
-    return remainingBalance;
+
+    remainingBalance = Math.round( remainingBalance * 100 + Number.EPSILON ) / 100;
+    console.log(`remainingBalance: ${remainingBalance}`);
+
+
+    /** Get needed & actual quantities */
+    let currencyValue = CurrencyInfo[idx][1];
+    let neededQty = Math.floor(((remainingBalance / currencyValue) * 100)/100);
+    let actualQty = Math.floor(((amt / currencyValue)*100)/100);
+    // console.log(`neededQty: ${neededQty} of ${currency}`);
+    // console.log(`actualQty: ${actualQty} of ${currency}`);
+
+    if (neededQty > 0 && actualQty > 0) {
+      if (actualQty >= neededQty) {
+        let returnChange = neededQty * currencyValue;
+        // console.log(`returnChange: ${returnChange}`);
+        CashRegister.change = [...CashRegister.change, [currency, returnChange]];
+        return remainingBalance - returnChange;
+      }
+      else {
+        let returnChange = actualQty * currencyValue;
+        // console.log(`returnChange: ${returnChange}`);
+        CashRegister.change = [...CashRegister.change, [currency, returnChange]];
+        return remainingBalance - returnChange;
+      }
+    }
+    else {
+      return remainingBalance;
+    }
   }, changeAmount);
 
-  console.log(`FINAL remainingBalance: ${remainingBalance}`);
+  // console.log(`FINAL remainingBalance: ${remainingBalance}`);
 
   if (remainingBalance !== 0) {
     CashRegister.status = "INSUFFICIENT_FUNDS";
     CashRegister.change = [];
   }
+  console.log(JSON.stringify(CashRegister));
   return CashRegister;
 }
 
 module.exports = checkCashRegister;
 
-console.log(checkCashRegister(3.26, 100, [["PENNY", 1.01], ["NICKEL", 2.05], ["DIME", 3.1], ["QUARTER", 4.25], ["ONE", 90], ["FIVE", 55], ["TEN", 20], ["TWENTY", 60], ["ONE HUNDRED", 100]]));
+// console.log(checkCashRegister(3.26, 100, [["PENNY", 1.01], ["NICKEL", 2.05], ["DIME", 3.1], ["QUARTER", 4.25], ["ONE", 90], ["FIVE", 55], ["TEN", 20], ["TWENTY", 60], ["ONE HUNDRED", 100]]));
 
-console.log(checkCashRegister(19.5, 20, [["PENNY", 0.01], ["NICKEL", 0], ["DIME", 0], ["QUARTER", 0], ["ONE", 1], ["FIVE", 0], ["TEN", 0], ["TWENTY", 0], ["ONE HUNDRED", 0]]));
+console.log(checkCashRegister(19.5, 20, [["PENNY", 1.01], ["NICKEL", 2.05], ["DIME", 3.1], ["QUARTER", 4.25], ["ONE", 90], ["FIVE", 55], ["TEN", 20], ["TWENTY", 60], ["ONE HUNDRED", 100]]));
