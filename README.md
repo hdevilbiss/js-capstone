@@ -34,3 +34,27 @@ _This project was bootstrapped with [Create React App](https://github.com/facebo
 ## Google Firebase
 
 ### Learn more about [setting up Firebase deployment](https://github.com/hdevilbiss/js-babel-firebase/wiki/Deploy-with-Firebase)
+
+## Challenges
+
+Sometimes, the details are so center-focus, that the bigger picture becomes blurred.
+
+Here are some of the obstacles that I had when creating this app.
+
+### **[Wiki on Challenges](https://github.com/hdevilbiss/js-capstone/wiki/Challenges)**
+
+```markdown
+🌳🌳🌳🌳🌳🌳
+🥚🐉🏯 ⚔️  🌳
+🌳🌳🌳🌳🌳 🌳
+```
+
+#### Ongoing Semantic Bug
+
+Something has gone wrong: 1 test fails in a test suite, but returns the correct result when running the file directly, both transpiled and not, and it passed the unit tests from freeCodeCamp.
+
+![A table showing that only the unit test gives an incorrect result, while running the function with Node directly gives the expected result](docs/images/bingo-bug.png)
+
+I will need to compare the freeCodeCamp unit tests against my own.
+
+To be continued...
