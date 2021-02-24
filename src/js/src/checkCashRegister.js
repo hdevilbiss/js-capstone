@@ -68,16 +68,11 @@ const checkCashRegister = (price = 0, cash = 0, cid = []) => {
     let actualQty = Math.floor(((amt / currencyValue)*100)/100);
 
     if (neededQty > 0 && actualQty > 0) {
-      if (actualQty >= neededQty) {
-        let returnChange = neededQty * currencyValue;
-        CashRegister.change = [...CashRegister.change, [currency, returnChange]];
-        return remainingBalance - returnChange;
-      }
-      else {
-        let returnChange = actualQty * currencyValue;
-        CashRegister.change = [...CashRegister.change, [currency, returnChange]];
-        return remainingBalance - returnChange;
-      }
+      let returnChange = (actualQty >= neededQty)
+        ? neededQty * currencyValue
+        : actualQty * currencyValue;
+      CashRegister.change = [...CashRegister.change, [currency, returnChange]];
+      return remainingBalance - returnChange;
     }
     else {
       return remainingBalance;
