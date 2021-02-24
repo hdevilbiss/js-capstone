@@ -10,7 +10,7 @@
  * as an object with a status and change key.
  */
 const checkCashRegister = (price = 0, cash = 0, cid = []) => {
-
+  console.log(`input: ${price}, ${cash}, cid: ${JSON.stringify(cid)}`);
   let changeAmount = cash - price;
 
   const CashRegister = {
@@ -33,7 +33,6 @@ const checkCashRegister = (price = 0, cash = 0, cid = []) => {
   /** Get the amount of cash in drawer (unit $1.00) */
   const cashInDrawer = Math.round(cid.reduce((sum, [,amtCash]) => sum + amtCash, 0) * 100) / 100;
 
-  // console.log(`cid: ${JSON.stringify(cid)}`);
   // console.log(`cashInDrawer: ${cashInDrawer}`);
   // console.log(`changeAmount: ${changeAmount}`);
 
@@ -63,10 +62,10 @@ const checkCashRegister = (price = 0, cash = 0, cid = []) => {
   let remainingBalance = cid.reverse().reduce((remainingBalance, [currency, amt], idx) => {
 
     remainingBalance = Math.round( remainingBalance * 100 + Number.EPSILON ) / 100;
-    console.log(`remainingBalance: ${remainingBalance}`);
+    console.log(`remainingBalance at ${currency}: ${remainingBalance}`);
 
 
-    /** Get needed & actual quantities */
+    /** Get needed & actual quantities for the active currency */
     let currencyValue = CurrencyInfo[idx][1];
     let neededQty = Math.floor(((remainingBalance / currencyValue) * 100)/100);
     let actualQty = Math.floor(((amt / currencyValue)*100)/100);
@@ -98,7 +97,7 @@ const checkCashRegister = (price = 0, cash = 0, cid = []) => {
     CashRegister.status = "INSUFFICIENT_FUNDS";
     CashRegister.change = [];
   }
-  console.log(JSON.stringify(CashRegister));
+  // console.log(JSON.stringify(CashRegister));
   return CashRegister;
 }
 

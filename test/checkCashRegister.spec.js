@@ -22,8 +22,8 @@ describe("Test suite for checkCashRegister", () => {
     ],
   );
 
-  it(`should return an object given ${testArr[0][0]}`, () => {
-    assert.strictEqual(typeof checkCashRegister(testArr[0][0][0], testArr[0][0][1], testArr[0][0][2]), "object");
+  it(`should return an object given ${19.5, 20, [['PENNY', 1.01],['NICKEL', 2.05],['DIME', 3.1],['QUARTER', 4.25],['ONE', 90],['FIVE', 55],['TEN', 20],['TWENTY', 60],['ONE HUNDRED', 100]]}`, () => {
+    assert.strictEqual(typeof checkCashRegister(19.5, 20, [['PENNY', 1.01],['NICKEL', 2.05],['DIME', 3.1],['QUARTER', 4.25],['ONE', 90],['FIVE', 55],['TEN', 20],['TWENTY', 60],['ONE HUNDRED', 100]]), "object");
   });
 
   // Loop through all tests
