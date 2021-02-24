@@ -2,13 +2,17 @@
 
 Solutions to the 5 final projects for the [freeCodeCamp JavaScript Algorithms and Data Structures](https://www.freecodecamp.org/learn/javascript-algorithms-and-data-structures/) certificate.
 
-![Screenshot of the app showing 3 rectangles for palindrome, Roman numeral converter, and ROT13 decoder](src/images/screenshot.JPG)
+![Screenshot of the app showing 3 rectangles for palindrome, Roman numeral converter, and ROT13 decoder](docs/images/screenshot.JPG)
 
 ## Tech Stack
 
 _This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app)._
 
-This project is a React app with Mocha unit tests and Sass stylesheets, deployed to Google Firebase hosting.
+- JavaScript Framework / Library: React
+- Unit Testing: Mocha
+- Styling: Sass
+- Hosting: Google Firebase
+- Continuous Integration: GitHub Actions
 
 ## Live Preview
 
@@ -30,3 +34,23 @@ This project is a React app with Mocha unit tests and Sass stylesheets, deployed
 ## Google Firebase
 
 ### Learn more about [setting up Firebase deployment](https://github.com/hdevilbiss/js-babel-firebase/wiki/Deploy-with-Firebase)
+
+## Challenges
+
+Sometimes, the details are so center-focus, that the bigger picture becomes blurred.
+
+Here are some of the obstacles that I had when creating this app.
+
+### **[Wiki on Challenges](https://github.com/hdevilbiss/js-capstone/wiki/Challenges)**
+
+```markdown
+🌳🌳🌳🌳🌳🌳
+🥚🐉🏯 ⚔️  🌳
+🌳🌳🌳🌳🌳 🌳
+```
+
+## Miscellaneous
+
+The CashRegister took me about 8 days to complete. Charting out the logic helped in the process.
+
+![flowchart of the CashRegister logic](docs/images/CheckCashRegister.jpg)

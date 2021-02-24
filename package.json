@@ -20,7 +20,7 @@
     "web-vitals": "^0.2.4"
   },
   "scripts": {
-    "start": "react-scripts start",
+    "start": "npm run transpile && react-scripts start",
     "build": "npm run transpile && react-scripts build",
     "transpile": "babel src/js/src --out-dir src/js/lib",
     "transpile:watch": "babel src/js/src --watch --out-dir src/js/lib",
@@ -50,6 +50,6 @@
     "@babel/core": "^7.12.10",
     "@babel/preset-env": "^7.12.11",
     "@babel/register": "^7.12.10",
-    "mocha": "^8.2.1"
+    "mocha": "8.3.0"
   }
 }
