@@ -48,3 +48,9 @@ Here are some of the obstacles that I had when creating this app.
 🥚🐉🏯 ⚔️  🌳
 🌳🌳🌳🌳🌳 🌳
 ```
+
+## Miscellaneous
+
+The CashRegister took me about 8 days to complete. Charting out the logic helped in the process.
+
+![flowchart of the CashRegister logic](docs/images/CheckCashRegister.jpg)
