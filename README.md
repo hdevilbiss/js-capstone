@@ -48,13 +48,3 @@ Here are some of the obstacles that I had when creating this app.
 🥚🐉🏯 ⚔️  🌳
 🌳🌳🌳🌳🌳 🌳
 ```
-
-#### Ongoing Semantic Bug
-
-Something has gone wrong: 1 test fails in a test suite, but returns the correct result when running the file directly, both transpiled and not, and it passed the unit tests from freeCodeCamp.
-
-![A table showing that only the unit test gives an incorrect result, while running the function with Node directly gives the expected result](docs/images/bingo-bug.png)
-
-I will need to compare the freeCodeCamp unit tests against my own.
-
-To be continued...
