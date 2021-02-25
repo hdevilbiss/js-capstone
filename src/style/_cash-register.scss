@@ -1,0 +1,15 @@
+.cash-register {
+  background-image: url("../images/cash-register.jpg"),
+    linear-gradient(rgba(255, 255, 255, 0.75), rgba(255, 255, 255, 0.75));
+  background-blend-mode: overlay;
+  background-size: cover;
+  border: 2px solid #000;
+  border-radius: 10px;
+  box-shadow: 5px 10px darkturquoise;
+  margin-left: auto;
+  margin-right: auto;
+  select,
+  option {
+    padding: 1rem;
+  }
+}
