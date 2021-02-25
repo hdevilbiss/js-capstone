@@ -4,7 +4,7 @@
  * A palindrome is a sequence of characters
  * that reads the same backward as forward.
  * Given a string, create a new string by removing
- * a set of special chars, then convert it to lowercase.
+ * special chars, then converting to lowercase.
  * Create two substrings from the new string using slice.
  * The slice indices will depend on whether the new string
  * has an even number or an odd number of characters.

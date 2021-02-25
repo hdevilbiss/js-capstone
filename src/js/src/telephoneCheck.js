@@ -8,9 +8,7 @@ const telephoneCheck = (str) => {
   if (trimStr.length < 10) return false;
   const regex = /^(1?\s?)(\(\d{3}\)|\d{3})(-?\s?\d{3})(-?\s?\d{4})$/gm;
   const matches = trimStr.match(regex);
-  return matches === null
-    ? false
-    : true;
+  return matches === null;
 }
 
 module.exports = telephoneCheck;
