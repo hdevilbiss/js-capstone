@@ -1,6 +1,6 @@
 import { useState } from "react";
 import palindrome from "../js/lib/palindrome";
-import Card from "../components/Card";
+import Card from "./partials/Card";
 
 const Palindrome = ({ object }) => {
   /**

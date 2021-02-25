@@ -1,6 +1,6 @@
 import { useState } from "react";
 import rot13 from "../js/lib/rot13";
-import Card from "./Card";
+import Card from "./partials/Card";
 
 const Rot = ({ object }) => {
   /**

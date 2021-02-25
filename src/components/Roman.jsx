@@ -1,6 +1,6 @@
 import { useState } from "react";
 import convertToRoman from "../js/lib/convertToRoman";
-import Card from "../components/Card";
+import Card from "./partials/Card";
 
 const Roman = ({ object }) => {
   /**
