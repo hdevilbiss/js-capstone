@@ -80,6 +80,16 @@ function MakeCards() {
       bgArtistName: "Katrin Hauf",
       bgPhotoLink: "https://unsplash.com/s/photos/telephone?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText",
       bgPhotoVendor: "Unsplash"
+    },
+    {
+      name: "Cash Register",
+      id: uuidv4(),
+      heading: "Cash Register",
+      promptLink: "https://www.freecodecamp.org/learn/javascript-algorithms-and-data-structures/javascript-algorithms-and-data-structures-projects/cash-register",
+      bgArtistLink: "https://unsplash.com/@thisisramiro?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText",
+      bgArtistName: "Ramiro Mendes",
+      bgPhotoLink: "https://unsplash.com/?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText",
+      bgPhotoVendor: "Unsplash"
     }
   ];
 }
