@@ -12,6 +12,7 @@ import Palindrome from "./components/Palindrome";
 import Roman from "./components/Roman";
 import Rot from "./components/Rot";
 import Telephone from "./components/Telephone";
+// import CashRegister from "./components/CashRegister";
 
 /**
  * Import data
@@ -57,6 +58,7 @@ function App() {
           <Roman object={cards.find(obj => obj.name === "Roman")} />
           <Rot object={cards.find(obj => obj.name === "Rot")} />
           <Telephone object={cards.find(obj => obj.name === "Telephone")} />
+          {/* <CashRegister object={cards.find(obj => obj.name === "Cash Register")} /> */}
         </div>
       </main>
     </div>

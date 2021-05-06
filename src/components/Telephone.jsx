@@ -1,6 +1,6 @@
 import { useState } from "react";
 import telephoneCheck from "../js/lib/telephoneCheck";
-import Card from "./Card";
+import Card from "./partials/Card";
 
 const Telephone = ({ object }) => {
     /**

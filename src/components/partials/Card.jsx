@@ -1,17 +1,18 @@
-import slugify from "../js/lib/slugify.js";
+import slugify from "../../js/lib/slugify.js";
+import PhotoCredit from "./PhotoCredit";
 
 const Card = ({ object, inputHandler, inputValue, inputFeedback, submitHandler, clearHandler, outputArray}) => {
   return (
     <div className={`card ${slugify(object.name) ?? ""}`}>
-      <header>
-        <h2>
-          {object.heading}
-        </h2>
-        <a href={object.promptLink}>
-          Prompt
-        </a>
-      </header>
       <section>
+        <header>
+          <h2>
+            {object.heading}
+          </h2>
+          <a href={object.promptLink}>
+            Prompt
+          </a>
+        </header>
         <div>
           <label htmlFor={`${slugify(object.name)}-input`}>
           {object.inputLabel}
@@ -34,9 +35,12 @@ const Card = ({ object, inputHandler, inputValue, inputFeedback, submitHandler, 
             <p key={idx}>{str}</p>
           ))}
         </div>
-        <div className="photo-credit">
-          Photo by <a href={object.bgArtistLink}>{object.bgArtistName}</a> on <a href={object.bgPhotoLink}>{object.bgPhotoVendor}</a>
-        </div>
+        <PhotoCredit
+          bgArtistLink={object.bgArtistLink}
+          bgArtistName={object.bgArtistName}
+          bgPhotoLink={object.bgPhotoLink}
+          bgPhotoVendor={object.bgPhotoVendor}
+        />
       </section>
     </div>
   );

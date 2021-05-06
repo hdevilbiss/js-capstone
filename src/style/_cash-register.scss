@@ -1,0 +1,27 @@
+.cash-register {
+  background-image: url("../images/cash-register.jpg"),
+    linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5));
+  background-blend-mode: overlay;
+  background-size: cover;
+  border: 2px solid #000;
+  border-radius: 10px;
+  box-shadow: 5px 10px gold;
+  color: #fff;
+  grid-column: span 2 / span 2;
+  a {
+    color: #fff;
+    &:hover {
+      color: #ff0;
+    }
+  }
+  select,
+  option {
+    padding: 1rem;
+  }
+  .currencies {
+    align-items: center;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+}
